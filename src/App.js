@@ -1,65 +1,24 @@
 
 // modifiche
 // FUNCTION COMPONENT
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
+import Navbar from './Navbar';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import ToDoList from './ToDoList';
+import HomePage from './HomePage';
+import Footer from './Footer';
 
-const Todo = (props) => {
-  return (
-    <div style={{textDecoration: props.todo.completato ? 'line-through':''}} className='todo'>
-      {props.todo.name}
-      <div>
-        <button onClick={()=> props.completaTodo(props.index)}>Completa</button>
-      </div>
-    </div>
-  )
-}
-const Form = (props)=> {
-const [value, setValue]= useState();
-const handleSubmit = (e)=> {
-    if (value.trim() === "" ) {
-      return alert ("scrivi qualcosa")
-    }
-    e.preventDefault();
-    props.submit(value)
-    setValue('');
-  }
-  const onChangeText = (e)=>{
-    setValue(e.target.value);
-  }
- 
-  return(
-    <form onSubmit={handleSubmit}>
-      <input className='input' type="text" value={value} placeholder="aggiungi todo" onChange={onChangeText}/>
-    </form>
-  )
-}
+
 const App = ()=> {
-  const [todos, setTodos] = useState([
-      {name: 'imparare react', completato: false},
-      {name:'imparare gli state', completato: false},
-      {name: 'imparare i component', completato: false},
-  ]);
- 
-  const addTodo = (todo) => {
-    const newTodos = [...todos, {name: todo}]
-    setTodos(newTodos)
-  }
-  const completaTodo = (index)=> {
-    const newTodos = [...todos];
-    newTodos[index].completato = true;
-    setTodos(newTodos);
-  }
 
   return(
-    <div className="app">
-      <div className="todo-list">
-        {todos.map((item, index) => (
-          <Todo key = {index} todo={item} index={index} completaTodo={completaTodo}/>
-        ))}
-        <Form submit={addTodo}/>
-      </div>
-    </div>
+    <Router>
+      <Navbar/>
+      <Route exact path="/" component={HomePage}/>
+      <Route exact path="/ToDoList" component={ToDoList}/>
+      <Footer/>
+    </Router>
   )
   
 }

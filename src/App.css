@@ -1,14 +1,19 @@
 .app {
   background: lightskyblue;
-  padding: 30px;
-  height: 100vh;
+  padding-top: 30px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
 }
- 
+ main{
+   height: 80vh;
+ }
 .todo-list {
   background: #555;
   border-radius: 4px;
   padding: 8px;
-  max-width: 500px;
+  width: 500px;
+  align-self: baseline;
 }
  
 .todo {
@@ -31,4 +36,53 @@
   box-shadow: none;
   padding: 1.2rem;
   height: 2em
+}
+
+header{
+  width:100%;
+  height: 10vh;
+  background-color: lightgrey;
+}
+span{
+  display: inline-block;
+}
+a{
+  text-decoration-line: none;
+}
+a:visited{
+  color: black;
+}
+nav{
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  height: 100%;
+}
+.logo{
+  width:100px;
+  height: 100%;  
+}
+img{
+  width: 100%;
+  height: 100%;
+}
+.menu{
+  height: 100%;
+  width: 100px;
+}
+.menuList{
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  justify-content: space-between;
+}
+.menuLisTitle:hover{
+padding-top: 10px;
+border-top:1px solid black;
+}
+
+footer{
+  height: 10vh;
+  background-color:black;
+  color: white;
 }
